@@ -1,5 +1,6 @@
 package it.randstad.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,8 +29,20 @@ public class ProdottoServiceImpl implements ProdottoService {
 	}
 
 	@Override
-	public List<Prodotto> mostra() {
+	public List<Prodotto> mostraTutti() {
 		return prodottoRepository.findAll();
 	}
+
+	@Override
+	public List<Prodotto> cerca(Prodotto prodotto) {
+		Prodotto result = prodottoRepository.findByCodice(prodotto.getCodice()).orElse(null);
+		List<Prodotto> list = new ArrayList<Prodotto>();
+		
+		if(result != null) list.add(result);
+		
+		return list.isEmpty() ? prodottoRepository.findByDescrizioneContaining(prodotto.getDescrizione()) : list;
+	}
+	
+	
 	
 }

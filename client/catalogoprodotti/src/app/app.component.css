@@ -1,0 +1,75 @@
+button {
+    background-color: rgb(4, 216, 92);
+
+    padding: 4px 6px;
+    margin: 5px;
+
+    outline: none;
+    border: none;
+    border-radius: 0;
+    border-bottom: 2px solid green;
+
+    cursor: pointer;
+
+    transition: background-color 200ms ease-in-out;
+}
+
+button:hover {
+    background-color: rgb(161, 161, 161);
+}
+
+input[type="text"], input[type="number"] {
+    background-color: rgb(212, 212, 212);
+    /* color: white; */
+
+    padding: 6px;
+    margin: 0 2px;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid gray;
+    transition: background-color 200ms ease-in-out;
+}
+
+input[type="text"]:hover, input[type="text"]:focus, input[type="number"]:hover, input[type="number"]:focus {
+    background-color: rgb(236, 236, 236);
+}
+
+table {
+    background-color: rgba(0, 0, 0, .15);
+    padding: 10px;
+}
+
+th {
+    padding-bottom: 15px;
+}
+
+tr:nth-child(even) {
+    padding: 0px;
+    background-color: rgb(194, 194, 194);
+    outline: 2px solid gray;
+}
+
+tr:nth-child(odd) {
+    outline: 2px solid gray;
+}
+
+td {
+    margin: 0;
+    padding: 6px;
+    outline: 2px solid gray;
+    
+    transition: background-color 200ms ease-in-out;
+}
+
+td:hover {
+    background-color: rgb(160, 160, 160);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+#elimina {
+    font-weight: bold;
+}

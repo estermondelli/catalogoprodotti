@@ -10,6 +10,8 @@ public interface ProdottoService {
 	
 	List<Prodotto> rimuovi(Prodotto prodotto);
 	
-	List<Prodotto> mostra();
+	List<Prodotto> mostraTutti();
+	
+	List<Prodotto> cerca(Prodotto prodotto);
 	
 }

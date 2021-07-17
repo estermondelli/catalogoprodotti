@@ -1,23 +1,21 @@
 <h1>Catalogo Prodotti</h1>
-<input type="text" placeholder="Codice" [(ngModel)]="prodotto.codice">
+<hr>
+<input type="number" placeholder="Codice" [(ngModel)]="prodotto.codice">
 <input type="text" placeholder="Descrizione" [(ngModel)]="prodotto.descrizione">
-<input type="text" placeholder="Prezzo" [(ngModel)]="prodotto.prezzo">
+<input type="number" placeholder="Prezzo" [(ngModel)]="prodotto.prezzo">
 
-<button (click)="aggiungi()"> 
-  Aggiungi Prodotto 
+<button (click)="aggiungi()">
+  Aggiungi Prodotto
 </button>
-<button (click)="rimuovi()">
-  Rimuovi Prodotto
-</button>
-<button (click)="mostra()">
-  Mostra Prodotto
-</button>
-
-<input type="text" placeholder="Ricerca" [(ngModel)]="ricerca">
-<button (click) ="cerca()">
+<br>
+<hr>
+<input type="number" placeholder="Ricerca per codice" [(ngModel)]="ricerca.codice">
+<input type="text" placeholder="Ricerca per descrizione" [(ngModel)]="ricerca.descrizione">
+<button (click)="cerca()">
   Cerca
 </button>
-<table >
+<hr>
+<table>
   <th>Codice</th>
   <th>Descrizione</th>
   <th>Prezzo</th>
@@ -25,5 +23,6 @@
     <td>{{p.codice}}</td>
     <td>{{p.descrizione}}</td>
     <td>{{p.prezzo}}</td>
+    <button id="elimina" (click)="rimuovi(p)">X</button>
   </tr>
 </table>

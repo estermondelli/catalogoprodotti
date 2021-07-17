@@ -11,10 +11,12 @@ import { Prodotto } from './prodotto';
 })
 export class AppComponent {
   prodotto: Prodotto = new Prodotto();
+  ricerca: Prodotto = new Prodotto();
   prodotti: Prodotto[] = [];
-  ricerca: string="";
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    this.mostra();
+  }
 
   public aggiungi() {
     let oss: Observable<Prodotto[]>
@@ -24,9 +26,10 @@ export class AppComponent {
     })
   }
 
-  public rimuovi() {
+  public rimuovi(prodotto: Prodotto) {
     let oss: Observable<Prodotto[]>
-      = this.http.post<Prodotto[]>("http://localhost:8080/rimuovi", this.prodotto);
+      = this.http.post<Prodotto[]>("http://localhost:8080/rimuovi", prodotto);
+
     oss.subscribe(risp => {
       this.prodotti = risp;
     })
@@ -39,7 +42,12 @@ export class AppComponent {
       this.prodotti = risp;
     })
   }
-public cerca (){
 
-}
+  public cerca() {
+    let oss: Observable<Prodotto[]>
+      = this.http.post<Prodotto[]>("http://localhost:8080/cerca", this.ricerca);
+    oss.subscribe(risp => {
+      this.prodotti = risp;
+    })
+  }
 }

@@ -33,8 +33,14 @@ public class ProdottoController {
 	
 	@RequestMapping("/mostra")
 	@ResponseBody
-	public List<Prodotto> mostra() {
-		return prodottoService.mostra();
+	public List<Prodotto> mostraTutti() {
+		return prodottoService.mostraTutti();
+	}
+	
+	@RequestMapping("/cerca")
+	@ResponseBody
+	public List<Prodotto> cerca(@RequestBody Prodotto prodotto) {
+		return prodottoService.cerca(prodotto);
 	}
 	
 }
