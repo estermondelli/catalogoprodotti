@@ -3,6 +3,8 @@ package it.randstad.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +13,7 @@ import it.randstad.repository.ProdottoRepository;
 import it.randstad.service.ProdottoService;
 
 @Service
+@Transactional
 public class ProdottoServiceImpl implements ProdottoService {
 	
 	@Autowired
@@ -35,12 +38,16 @@ public class ProdottoServiceImpl implements ProdottoService {
 
 	@Override
 	public List<Prodotto> cerca(Prodotto prodotto) {
-		Prodotto result = prodottoRepository.findByCodice(prodotto.getCodice()).orElse(null);
 		List<Prodotto> list = new ArrayList<Prodotto>();
 		
-		if(result != null) list.add(result);
+		if(prodotto.getCodice() != null
+				|| prodotto.getDescrizione() != null) {
+			if((list = prodottoRepository.findByCodice(prodotto.getCodice())).isEmpty()) {
+				list = prodottoRepository.findByDescrizioneContaining(prodotto.getDescrizione());
+			}
+		}
 		
-		return list.isEmpty() ? prodottoRepository.findByDescrizioneContaining(prodotto.getDescrizione()) : list;
+		return list;
 	}
 	
 	

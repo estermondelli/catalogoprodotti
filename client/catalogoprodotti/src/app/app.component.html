@@ -1,5 +1,6 @@
 <h1>Catalogo Prodotti</h1>
 <hr>
+<h3>Inserisci prodotto</h3>
 <input type="number" placeholder="Codice" [(ngModel)]="prodotto.codice">
 <input type="text" placeholder="Descrizione" [(ngModel)]="prodotto.descrizione">
 <input type="number" placeholder="Prezzo" [(ngModel)]="prodotto.prezzo">
@@ -9,12 +10,14 @@
 </button>
 <br>
 <hr>
+<h3>Ricerca prodotto</h3>
 <input type="number" placeholder="Ricerca per codice" [(ngModel)]="ricerca.codice">
 <input type="text" placeholder="Ricerca per descrizione" [(ngModel)]="ricerca.descrizione">
 <button (click)="cerca()">
   Cerca
 </button>
 <hr>
+<h3>Prodotti</h3>
 <table>
   <th>Codice</th>
   <th>Descrizione</th>

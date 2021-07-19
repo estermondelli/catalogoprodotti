@@ -1,5 +1,5 @@
 button {
-    background-color: rgb(4, 216, 92);
+    background-color: rgb(185, 185, 185);
 
     padding: 4px 6px;
     margin: 5px;
@@ -7,14 +7,15 @@ button {
     outline: none;
     border: none;
     border-radius: 0;
-    border-bottom: 2px solid green;
+    border-bottom: 2px solid gray;
 
     cursor: pointer;
 
-    transition: background-color 200ms ease-in-out;
+    transition: background-color 200ms ease-in-out, transform 100ms ease-in-out;
 }
 
 button:hover {
+    transform: scale(1.1);
     background-color: rgb(161, 161, 161);
 }
 
@@ -70,6 +71,9 @@ td:hover {
     flex-direction: column;
 }
 
-#elimina {
+button#elimina {
+    background-color: rgb(224, 0, 0);
+    border-bottom: 2px solid rgb(170, 0, 0);
+    color: rgb(212, 212, 212);
     font-weight: bold;
 }
